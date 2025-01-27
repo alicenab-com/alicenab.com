@@ -1,53 +1,118 @@
 site_name: alicenab.com
+site_url: https://alicenab.com
+site_description: alicenab.com
+site_author: Ali Mammadzada
+
 theme:
-  name: material 
+  name: material
   features:
-    - toc.integrate
     - navigation.tabs
     - navigation.sections
+    - navigation.expand
     - navigation.top
+    - toc.integrate
+    - content.action.edit
+    - content.action.copy
+    - content.action.comments
+    - content.code.annotate
+    - content.code.copy
     - search.suggest
     - search.highlight
+    - search.share
     - content.tabs.link
-    - content.code.annotation
-    - content.code.copy
+    - content.tabs.lazy
+    - navigation.tracking
   language: en
   palette:
     - scheme: default
       toggle:
-        icon: material/toggle-switch-off-outline
-        name: Dark mode
-      primary: teal
+        icon: material/toggle-switch
+        name: Dark modee
+      primary: indigo
       accent: purple
     - scheme: slate
       toggle:
-        icon: material/toggle-switch
+        icon: material/toggle-switch-off-outline
         name: Light mode
-      primary: teal
+      primary: indigo
       accent: purple
+  icon:
+    repo: fontawesome/brands/github-alt
+#  favicon: assets/images/favicon.ico  # Ensure this file exists
+#  logo: assets/images/logo.png        # Customize with your logo
 
+# Add extra metadata
 extra:
   generator: false
   social:
     - icon: fontawesome/brands/github-alt
       link: https://github.com/alicenab
+    - icon: fontawesome/brands/twitter
+#  analytics:
+#    provider: google
+#    tracking_id: G-XXXXXXXXXX  # Replace with your Google Analytics ID
 
-copyright: |
-  &copy 2025 <a href="https://alicenab.com" target="_blank" rel="noopener">Ali Mammadzada</a>
-
+# Configure markdown extensions
 markdown_extensions:
+  - toc:
+      permalink: true
+  - attr_list
+  - admonition
   - pymdownx.highlight:
+      use_pygments: true
+      linenums: true
       anchor_linenums: true
   - pymdownx.inlinehilite
   - pymdownx.snippets
-  - admonition
-  - pymdownx.arithmatex:
-      generic: true
-  - footnotes
   - pymdownx.details
   - pymdownx.superfences
-  - pymdownx.mark
-  - attr_list
+  - pymdownx.magiclink
+  - pymdownx.betterem:
+      smart_enable: true
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.keys
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.mark
+  - pymdownx.tabbed
+  - footnotes
+  - abbr
+
+nav:
+  - Home: index.md
+  - Blog:
+      - blog/index.md
+  - Tutorials:
+      - tutorials/index.md
+      - "Python tutorials": tutorials/python.md
+      - "Redhat tutorials": tutorials/redhat.md
+  - Projects: 
+      - "downmon.io": projects/downmon.io.md
+
+  - About: about.md
+
+extra_css:
+  - assets/styles/extra.css
+plugins:
+  - search:
+      lang: en
+      separator: '[\s\-.,;!?]+'
+  - blog:
+      blog_dir: blog
+
+
+
+  - redirects
+#  - sitemap:
+#      sitemap_url: https://alicenab.com/sitemap.xml
+
+copyright: |
+  &copy; 2025 <a href="https://alicenab.com" target="_blank" rel="noopener">Ali Mammadzada</a>. All rights reserved.
+
+# Options for deployment
+#repo_url: https://github.com/alicenab/mkdocs-website
+#edit_uri: ""
